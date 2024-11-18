@@ -21,6 +21,7 @@ fn main() {
 
         pool.append(&mut items);
         assert_eq!(items.len(), 0);
+        //println!("Indicator: {}", i);
     }
 
     println!("Bumb tests run OK!");
