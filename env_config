@@ -1,0 +1,2 @@
+
+export PATH=/home/lurenjia/oscamp/lib/x86_64-linux-musl-cross/bin:/home/lurenjia/oscamp/lib/aarch64-linux-musl-cross/bin:/home/lurenjia/oscamp/lib/riscv64-linux-musl-cross/bin:$PATH
