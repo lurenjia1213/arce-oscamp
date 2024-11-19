@@ -11,6 +11,7 @@ extern crate axlog;
 mod task;
 mod syscall;
 mod loader;
+mod page_fault_handle;
 
 use axstd::io;
 use axhal::paging::MappingFlags;
@@ -25,6 +26,8 @@ const USER_STACK_SIZE: usize = 0x10000;
 const KERNEL_STACK_SIZE: usize = 0x40000; // 256 KiB
 const APP_ENTRY: usize = 0x1000;
 
+use axhal::trap::{register_trap_handler, PAGE_FAULT};
+
 #[cfg_attr(feature = "axstd", no_mangle)]
 fn main() {
     // A new address space for user app.
@@ -36,7 +39,7 @@ fn main() {
     }
 
     // Init user stack.
-    let ustack_top = init_user_stack(&mut uspace, true).unwrap();
+    let ustack_top = init_user_stack(&mut uspace, yes).unwrap();
     ax_println!("New user address space: {:#x?}", uspace);
 
     // Let's kick off the user process.
