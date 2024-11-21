@@ -39,7 +39,7 @@ fn main() {
     }
 
     // Init user stack.
-    let ustack_top = init_user_stack(&mut uspace, yes).unwrap();
+    let ustack_top = init_user_stack(&mut uspace, false).unwrap();
     ax_println!("New user address space: {:#x?}", uspace);
 
     // Let's kick off the user process.

@@ -25,7 +25,7 @@ pub fn start_secondary_cpus(primary_cpu_id: usize) {
             }
         }
     }
-}
+}                  
 
 /// The main entry point of the ArceOS runtime for secondary CPUs.
 ///
